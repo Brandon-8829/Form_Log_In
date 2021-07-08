@@ -1,0 +1,15 @@
+C:\Users\bharris\source\repos\DatabaseProject\DatabaseProject\bin\Debug\Database1.mdf
+C:\Users\bharris\source\repos\DatabaseProject\DatabaseProject\bin\Debug\Database1_log.ldf
+C:\Users\bharris\source\repos\DatabaseProject\DatabaseProject\bin\Debug\DatabaseProject.exe.config
+C:\Users\bharris\source\repos\DatabaseProject\DatabaseProject\bin\Debug\DatabaseProject.exe
+C:\Users\bharris\source\repos\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.csprojAssemblyReference.cache
+C:\Users\bharris\source\repos\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.LogIn.resources
+C:\Users\bharris\source\repos\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.Properties.Resources.resources
+C:\Users\bharris\source\repos\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.SignUp.resources
+C:\Users\bharris\source\repos\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.csproj.GenerateResource.cache
+C:\Users\bharris\source\repos\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.csproj.CoreCompileInputs.cache
+C:\Users\bharris\source\repos\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.exe
+C:\Users\bharris\source\repos\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.pdb
+C:\Users\bharris\source\repos\DatabaseProject\DatabaseProject\bin\Debug\DatabaseProject.pdb
+C:\Users\bharris\source\repos\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.AdminPage.resources
+C:\Users\bharris\source\repos\DatabaseProject\DatabaseProject\obj\Debug\DatabaseProject.HomePage.resources
