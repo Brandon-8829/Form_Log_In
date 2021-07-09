@@ -38,6 +38,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ExitBtn = new System.Windows.Forms.Button();
+            this.txtCurrentEmail = new System.Windows.Forms.TextBox();
+            this.txtNewName = new System.Windows.Forms.TextBox();
+            this.txtNewEmail = new System.Windows.Forms.TextBox();
+            this.txtNewPassword = new System.Windows.Forms.TextBox();
+            this.txtNewCountry = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // GetInfo
@@ -66,6 +76,7 @@
             this.AaddUserBtn.TabIndex = 13;
             this.AaddUserBtn.Text = "Add User";
             this.AaddUserBtn.UseVisualStyleBackColor = true;
+            this.AaddUserBtn.Click += new System.EventHandler(this.AaddUserBtn_Click);
             // 
             // DeleteUserBtn
             // 
@@ -85,6 +96,7 @@
             this.EditUserBtn.TabIndex = 15;
             this.EditUserBtn.Text = "Edit User";
             this.EditUserBtn.UseVisualStyleBackColor = true;
+            this.EditUserBtn.Click += new System.EventHandler(this.EditUserBtn_Click);
             // 
             // txtDeleteName
             // 
@@ -129,11 +141,101 @@
             this.ExitBtn.UseVisualStyleBackColor = true;
             this.ExitBtn.Click += new System.EventHandler(this.ExitBtn_Click);
             // 
+            // txtCurrentEmail
+            // 
+            this.txtCurrentEmail.Location = new System.Drawing.Point(379, 67);
+            this.txtCurrentEmail.Name = "txtCurrentEmail";
+            this.txtCurrentEmail.Size = new System.Drawing.Size(100, 20);
+            this.txtCurrentEmail.TabIndex = 21;
+            // 
+            // txtNewName
+            // 
+            this.txtNewName.Location = new System.Drawing.Point(379, 114);
+            this.txtNewName.Name = "txtNewName";
+            this.txtNewName.Size = new System.Drawing.Size(100, 20);
+            this.txtNewName.TabIndex = 22;
+            // 
+            // txtNewEmail
+            // 
+            this.txtNewEmail.Location = new System.Drawing.Point(379, 162);
+            this.txtNewEmail.Name = "txtNewEmail";
+            this.txtNewEmail.Size = new System.Drawing.Size(100, 20);
+            this.txtNewEmail.TabIndex = 23;
+            // 
+            // txtNewPassword
+            // 
+            this.txtNewPassword.Location = new System.Drawing.Point(379, 210);
+            this.txtNewPassword.Name = "txtNewPassword";
+            this.txtNewPassword.Size = new System.Drawing.Size(100, 20);
+            this.txtNewPassword.TabIndex = 24;
+            // 
+            // txtNewCountry
+            // 
+            this.txtNewCountry.Location = new System.Drawing.Point(379, 258);
+            this.txtNewCountry.Name = "txtNewCountry";
+            this.txtNewCountry.Size = new System.Drawing.Size(100, 20);
+            this.txtNewCountry.TabIndex = 25;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(379, 51);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(75, 13);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "Current Email: ";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(379, 98);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(63, 13);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "New Name:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(376, 146);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(60, 13);
+            this.label5.TabIndex = 28;
+            this.label5.Text = "New Email:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(379, 194);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(78, 13);
+            this.label6.TabIndex = 29;
+            this.label6.Text = "New Password";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(376, 242);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(68, 13);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "New Country";
+            // 
             // AdminPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtNewCountry);
+            this.Controls.Add(this.txtNewPassword);
+            this.Controls.Add(this.txtNewEmail);
+            this.Controls.Add(this.txtNewName);
+            this.Controls.Add(this.txtCurrentEmail);
             this.Controls.Add(this.ExitBtn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -163,5 +265,15 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button ExitBtn;
+        private System.Windows.Forms.TextBox txtCurrentEmail;
+        private System.Windows.Forms.TextBox txtNewName;
+        private System.Windows.Forms.TextBox txtNewEmail;
+        private System.Windows.Forms.TextBox txtNewPassword;
+        private System.Windows.Forms.TextBox txtNewCountry;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

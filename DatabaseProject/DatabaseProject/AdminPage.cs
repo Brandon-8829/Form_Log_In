@@ -13,9 +13,11 @@ namespace DatabaseProject
 {
     public partial class AdminPage : Form
     {
+        
         public AdminPage()
         {
             InitializeComponent();
+            
         }
 
         /// <summary>
@@ -26,10 +28,8 @@ namespace DatabaseProject
         private void GetInfo_Click(object sender, EventArgs e)
         {
             string get = "Select Name,Email,Password,Country from Users";
-            SqlConnection cnn;
-
             string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\bharris\source\repos\DatabaseProject\DatabaseProject\Database1.mdf;Integrated Security=True";
-            cnn = new SqlConnection(connectionString);
+            SqlConnection cnn = new SqlConnection(connectionString);
 
 
             cnn.Open();
@@ -84,10 +84,8 @@ namespace DatabaseProject
             if (CheckName(UserName) == true && CheckEmail(UserEmail) == true)
             {
                 string get = "DELETE FROM Users WHERE Name='" + UserName + "' AND Email='" + UserEmail + "'";
-                SqlConnection cnn;
-
                 string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\bharris\source\repos\DatabaseProject\DatabaseProject\Database1.mdf;Integrated Security=True";
-                cnn = new SqlConnection(connectionString);
+                SqlConnection cnn = new SqlConnection(connectionString);
 
                 try
                 {
@@ -128,8 +126,9 @@ namespace DatabaseProject
         public bool CheckName(string name)
         {
             string get = "Select Name from Users Where Name='" + name + "'";
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\bharris\source\repos\DatabaseProject\DatabaseProject\Database1.mdf;Integrated Security=True";
+           
             string NameCheck = "";
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\bharris\source\repos\DatabaseProject\DatabaseProject\Database1.mdf;Integrated Security=True";
             SqlConnection cnn = new SqlConnection(connectionString);
 
             cnn.Open();
@@ -171,8 +170,9 @@ namespace DatabaseProject
         public bool CheckEmail(string Email)
         {
             string get = "Select Email from Users Where Email='" + Email + "'";
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\bharris\source\repos\DatabaseProject\DatabaseProject\Database1.mdf;Integrated Security=True";
+            
             string EmailCheck = "";
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\bharris\source\repos\DatabaseProject\DatabaseProject\Database1.mdf;Integrated Security=True";
             SqlConnection cnn = new SqlConnection(connectionString);
 
             cnn.Open();
@@ -214,6 +214,132 @@ namespace DatabaseProject
         private void ExitBtn_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.Exit();
+        }
+
+        private void AaddUserBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SignUp page = new SignUp();
+            page.Show();
+        }
+
+
+        /// <summary>
+        /// Allows the Admin to chnage any infomraton related to the User.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EditUserBtn_Click(object sender, EventArgs e)
+        {
+            string CurrentEmail = txtCurrentEmail.Text;
+            string NewName = txtNewName.Text;
+            string NewEmail = txtNewEmail.Text;
+            string NewPassword = txtNewPassword.Text;
+            string NewCountry = txtNewCountry.Text;
+
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\bharris\source\repos\DatabaseProject\DatabaseProject\Database1.mdf;Integrated Security=True";
+            SqlConnection cnn = new SqlConnection(connectionString);
+
+            // Check if the email entered exists as a User in the database.
+            if (CurrentEmail.Equals(""))
+            {
+                MessageBox.Show("Please Enter A Valid User Email");
+                return;
+            }
+            else if( CheckEmail(CurrentEmail) == false)
+            {
+                MessageBox.Show("The User does not exist");
+                return;
+            }
+
+            // Change the name of the user to the new name entered by the admin
+            if (!NewName.Equals(""))
+            {
+                try
+                {
+                    //MessageBox.Show("Updateing User...");
+                    string sql = "Update Users Set Name='"+NewName+"' Where Email='"+CurrentEmail+"'";
+                    cnn.Open();
+                    SqlCommand NameChange = new SqlCommand(sql, cnn);
+
+                    NameChange.ExecuteNonQuery();
+
+                    NameChange.Dispose();
+                    cnn.Close();
+                }
+                catch(Exception err)
+                {
+                    MessageBox.Show("" + err);
+                }
+            }
+
+            // Change the password of the user to the new password entered by the admin
+            if (!NewPassword.Equals(""))
+            {
+                try
+                {
+                    //MessageBox.Show("Updateing User...");
+                    string sql = "Update Users Set Password='" + NewPassword + "' Where Email='" + CurrentEmail + "'";
+                    cnn.Open();
+                    SqlCommand PasswordChange = new SqlCommand(sql, cnn);
+
+                    PasswordChange.ExecuteNonQuery();
+
+                    PasswordChange.Dispose();
+                    cnn.Close();
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show("" + err);
+                }
+            }
+
+            // Change the Country of the user to the new country entered by the admin
+            if (!NewCountry.Equals(""))
+            {
+                try
+                {
+                    //MessageBox.Show("Updateing User...");
+                    string sql = "Update Users Set Country='" + NewCountry + "' Where Email='" + CurrentEmail + "'";
+                    cnn.Open();
+                    SqlCommand CountryChange = new SqlCommand(sql, cnn);
+
+                    CountryChange.ExecuteNonQuery();
+
+                    CountryChange.Dispose();
+                    cnn.Close();
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show("" + err);
+                }
+            }
+
+            // Change the email of the user to the new email entered by the admin.
+            // The email needs to be changed last or the other changes would not occur since the email is would be different the the old email.
+            if (!NewEmail.Equals(""))
+            {
+                try
+                {
+                    //MessageBox.Show("Updateing User...");
+                    string sql = "Update Users Set Email='" + NewEmail + "' Where Email='" + CurrentEmail + "'";
+                    cnn.Open();
+                    SqlCommand EmailChange = new SqlCommand(sql, cnn);
+
+                    EmailChange.ExecuteNonQuery();
+
+                    EmailChange.Dispose();
+                    cnn.Close();
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show("" + err);
+                }
+            }
+
+            // Confirm that the user information was changed.
+            // We could add in another check here if we wanted to make sure the information was changed correctly.
+            MessageBox.Show("User Information Updated!");
         }
     }    
 }
